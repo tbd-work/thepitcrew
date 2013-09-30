@@ -11,6 +11,8 @@
     <AssemblyName>Pricing.Views.Handlers</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,25 +33,31 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NServiceBus">
-      <HintPath>..\packages\NServiceBus.Interfaces.4.0.4\lib\net40\NServiceBus.dll</HintPath>
+      <HintPath>..\..\packages\NServiceBus.Interfaces.4.0.4\lib\net40\NServiceBus.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="NServiceBus.Core">
-      <HintPath>..\packages\NServiceBus.4.0.4\lib\net40\NServiceBus.Core.dll</HintPath>
+      <HintPath>..\..\packages\NServiceBus.4.0.4\lib\net40\NServiceBus.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="NServiceBus.Host">
-      <HintPath>..\packages\NServiceBus.Host.4.0.4\lib\net40\NServiceBus.Host.exe</HintPath>
+      <HintPath>..\..\packages\NServiceBus.Host.4.0.4\lib\net40\NServiceBus.Host.exe</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="NServiceBus.ObjectBuilder.StructureMap">
-      <HintPath>..\packages\NServiceBus.StructureMap.4.0.4\lib\net40\NServiceBus.ObjectBuilder.StructureMap.dll</HintPath>
+      <HintPath>..\..\packages\NServiceBus.StructureMap.4.0.4\lib\net40\NServiceBus.ObjectBuilder.StructureMap.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Raven.Abstractions">
-      <HintPath>..\packages\RavenDB.Client.2.5.2700\lib\net45\Raven.Abstractions.dll</HintPath>
+      <HintPath>..\..\packages\RavenDB.Client.2.5.2700\lib\net45\Raven.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Client.Lightweight">
-      <HintPath>..\packages\RavenDB.Client.2.5.2700\lib\net45\Raven.Client.Lightweight.dll</HintPath>
+      <HintPath>..\..\packages\RavenDB.Client.2.5.2700\lib\net45\Raven.Client.Lightweight.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="StructureMap">
-      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+      <HintPath>..\..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -71,15 +79,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Src\Common\Common.csproj">
+    <ProjectReference Include="..\Common\Common.csproj">
       <Project>{69922274-715D-4C61-A2AD-7316F21662A3}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Src\Events\Events.csproj">
+    <ProjectReference Include="..\Events\Events.csproj">
       <Project>{C46DF51F-1BA9-4A2E-AB7F-E4FB8F3E0FB4}</Project>
       <Name>Events</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Src\Pricing\Pricing.csproj">
+    <ProjectReference Include="..\Pricing\Pricing.csproj">
       <Project>{3C00E796-9CB3-48EC-9198-E010F493F5A6}</Project>
       <Name>Pricing</Name>
     </ProjectReference>
@@ -96,4 +104,5 @@
     <StartAction>Program</StartAction>
     <StartProgram>$(ProjectDir)$(OutputPath)NServiceBus.Host.exe</StartProgram>
   </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
 </Project>
