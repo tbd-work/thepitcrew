@@ -37,9 +37,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accommodation.Views.Handler
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pricing", "Src\Pricing\Pricing.csproj", "{3C00E796-9CB3-48EC-9198-E010F493F5A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pricing.Handlers", "Pricing.Handlers\Pricing.Handlers.csproj", "{6A5E97F7-6AD9-4244-BFB3-83737A6D3953}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pricing.Handlers", "Src\Pricing.Handlers\Pricing.Handlers.csproj", "{6A5E97F7-6AD9-4244-BFB3-83737A6D3953}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pricing.Views.Handlers", "Pricing.Views.Handlers\Pricing.Views.Handlers.csproj", "{FEBE32C7-7638-45EF-9164-438EF814FB7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pricing.Views.Handlers", "Src\Pricing.Views.Handlers\Pricing.Views.Handlers.csproj", "{FEBE32C7-7638-45EF-9164-438EF814FB7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
