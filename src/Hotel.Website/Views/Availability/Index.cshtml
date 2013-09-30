@@ -1,0 +1,47 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Availability";
+    Layout = "~/Views/shared/__Layout.cshtml";
+}
+
+<h2>Availability</h2>
+<form name="set-availability-form" role="form" method="POST" action="/api/availability">
+    <div class="form-group">
+        <label for="roomType">Room Type</label>
+        <select class="form-control" name="roomType" id="roomType">
+            <option value="SGL">Single Room</option>
+            <option value="DBL">Double Room</option>
+            <option value="KNG">King Room</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="startingDate">Starting</label>
+        <input type="date" class="form-control" name="startingDate" id="startingDate" />
+    </div>
+    <div class="form-group">
+        <label for="endingDate">Ending</label>
+        <input type="date" class="form-control" name="endingDate" id="endingDate" />
+    </div>
+    <div class="form-group">
+        <label for="availability">Availability</label>
+        <input type="number" class="form-control" name="availability" id="availability" step="1" />
+    </div>
+    <button class="btn btn-primary">Set Availability</button>
+</form>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("form[name=\"set-availability-form\"]").ajaxForm({
+                success: function () {
+                    toastr.success('Availability has been set for the dates');
+                },
+                error: function () {
+                    toastr.error('Whoops, seems to have been a problem');
+                }
+            });
+        });
+    </script>
+}

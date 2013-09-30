@@ -1,0 +1,50 @@
+﻿@using System.Activities.Statements
+@model Customer.Website.Controllers.ReservationParameters
+
+@{
+    ViewBag.Title = "Make reservation";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+    
+}
+
+@functions
+{
+    string IsRoomType(string roomType)
+    {
+        if (Model.RoomType == roomType)
+            return "selected";
+
+        return string.Empty;
+    }
+
+}
+
+<h2>Make my reservation</h2>
+
+<form name="make-reservation-form" role="form" method="POST" action="/reservation/make">
+    <div class="form-group">
+        <label for="customerName">Name</label>
+        <input type="text" class="form-control" name="customerName" id="customerName" placeholder="Your name" />
+    </div>
+    <div class="form-group">
+        <label for="customerEmail">Email</label>
+        <input type="email" class="form-control" name="customerEmail" id="customerEmail" placeholder="sample@sample.com" />
+    </div>
+    <div class="form-group">
+        <label for="checkInDate">Checking In</label>
+        <input type="date" class="form-control" name="CheckingIn" id="checkInDate" value="@(Model.CheckingIn.ToString("yyyy-MM-dd"))" />
+    </div>
+    <div class="form-group">
+        <label for="checkOutDate">Checking Out</label>
+        <input type="date" class="form-control" name="CheckingOut" id="checkOutDate" value="@(Model.CheckingOut.ToString("yyyy-MM-dd"))" />
+    </div>
+    <div class="form-group">
+        <label for="roomType">Room Type</label>
+        <select class="form-control" name="roomType" id="roomType">
+            <option value="SGL" @(IsRoomType("SGL"))>Single Room</option>
+            <option value="DBL" @(IsRoomType("DBL"))>Double Room</option>
+            <option value="KNG" @(IsRoomType("KNG"))>King Room</option>
+        </select>
+    </div>
+    <button class="btn btn-primary">Make Reservation</button>
+</form>

@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@(ViewBag.Title ?? "Hotel Pitcrew - Welcome") </title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/bootstrap.css")"/>
+</head>
+<body>
+    <div class="container">
+        <h1>The Pitcrew</h1>
+        
+        @RenderBody()
+    </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>
+    
+    @RenderSection("scripts", false)
+</body>
+</html>

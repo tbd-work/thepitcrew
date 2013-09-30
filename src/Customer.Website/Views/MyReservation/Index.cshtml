@@ -1,0 +1,30 @@
+﻿@model Reservations.View.Model.ReservationInfo
+
+@{
+    ViewBag.Title = "My Reservation";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+
+<h2>My Reservation</h2>
+
+<div class="form-group">
+    <label>Made on</label>
+    <div>@(Model.ReservationWasMadeOn.ToLocalTime())</div>
+</div>
+<div class="form-group">
+    <label>Check-In</label>
+    <div>@(Model.StartingDate.ToString("D"))</div>
+</div>
+<div class="form-group">
+    <label>Check-Out</label>
+    <div>@(Model.EndingDate.ToString("D"))</div>
+</div>
+<div class="form-group">
+    <label>Room</label>
+    <div>@(Model.RoomType.Description)</div>
+</div>
+<div class="form-group">
+    <label>Quantity</label>
+    <div>@(Model.QuantityOfRooms)</div>
+</div>
+<a href="/" class="btn btn-success">Back to availability</a>

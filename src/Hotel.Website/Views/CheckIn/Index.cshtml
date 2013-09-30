@@ -1,0 +1,21 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Check-In";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+
+<h2>Find Reservation</h2>
+<form name="checkin-form" role="form" method="POST" action="/checkin/retrieve">
+    <div class="form-group">
+        <label for="customerName">Customer Name</label>
+        <input type="text" name="customerName" id="customerName" class="form-control" placeholder="customer name" />
+    </div>
+    <h3>OR</h3>
+    <br />
+    <div class="form-group">
+        <label for="reference">Reference</label>
+        <input type="text" name="reference" id="reference" class="form-control" placeholder="reference"/>
+    </div>
+    <button class="btn btn-primary">Find</button>
+</form>

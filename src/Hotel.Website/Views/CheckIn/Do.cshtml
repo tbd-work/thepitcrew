@@ -1,0 +1,15 @@
+﻿@model Accommodation.View.Models.AccommodationView
+
+@{
+    ViewBag.Title = "Check-In Reservation";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+
+<h2>Check-In Reservation</h2>
+<form name="check-in-form" role="form" method="POST" action="/checkin/complete">
+    <div class="form-group">
+        <label for="roomNumber">Room</label>
+        <input type="number" name="roomNumber" id="roomNumber" class="form-control" />
+    </div>
+    <button class="btn btn-primary">Check-In</button>
+</form>

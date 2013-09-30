@@ -1,0 +1,31 @@
+﻿@model System.Collections.Generic.IEnumerable<Accommodation.View.Models.AccommodationView>
+
+@{
+    ViewBag.Title = "Reservations";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+
+<h2>Reservations</h2>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Room</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var accommodation in Model)
+        {
+            <tr>
+                <td>@(accommodation.CheckingIn.ToString("yy-MMM-dd ddd"))</td>
+                <td>@(accommodation.CheckingOut.ToString("yy-MMM-dd ddd"))</td>
+                <td>@(accommodation.RoomType.Description)</td>
+                <td>@(accommodation.QuantityOfRooms)</td>
+                <td><a href="/checkin/do?id=@(accommodation.Id)">Check-In</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

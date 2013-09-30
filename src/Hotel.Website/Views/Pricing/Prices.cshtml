@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Pricing.View.Models.PricingView>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Room Type</th>
+            <th>Pricing</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pricing in Model)
+        {
+            <tr>
+                <td>@(pricing.RoomType.Description)</td>
+                <td>@(pricing.Price)</td>
+            </tr>
+        }
+    </tbody>
+</table>

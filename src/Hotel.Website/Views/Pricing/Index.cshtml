@@ -1,0 +1,26 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Pricing";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+
+<h2>Pricing</h2>
+
+@{ Html.RenderAction("Prices", "Pricing"); }
+
+<form name="room-pricing-form" method="POST" action="/api/pricing">
+    <div class="form-group">
+        <label for="roomType">Room Type</label>
+        <select name="roomType" id="roomType" class="form-control">
+            <option value="SGL">Single</option>
+            <option value="DBL">Double</option>
+            <option value="KNG">King</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="pricing">Pricing</label>
+        <input type="number" class="form-control" name="pricing" id="pricing" min="0" />
+    </div>
+    <button class="btn btn-primary">Set Pricing</button>
+</form>

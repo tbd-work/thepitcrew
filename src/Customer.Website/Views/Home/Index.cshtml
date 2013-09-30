@@ -1,0 +1,77 @@
+﻿@using System.Web.Script.Services
+@model dynamic
+
+@{
+    ViewBag.Title = "The Pitcrew";
+    Layout = "~/Views/Shared/__Layout.cshtml";
+}
+<div class="col-lg-3">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>Check Availability</h3>
+        </div>
+        <div class="panel-body">
+            <form name="reservation-form" action="/api/availability" method="get">
+                <div class="form-group">
+                    <label for="checkinDate">Checking In</label>
+                    <input class="form-control" type="date" name="checkinDate" id="checkinDate" />
+                </div>
+                <div class="form-group">
+                    <label for="checkoutDate">Checking Out</label>
+                    <input class="form-control" type="date" name="checkoutDate" id="checkoutDate" />
+                </div>
+                <div class="form-group">
+                    <label for="roomType">Room Type</label>
+                    <select class="form-control" name="roomType" id="roomType">
+                        <option value="SGL">Single</option>
+                        <option value="DBL">Double</option>
+                        <option value="KNG">King</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary">Check</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="results" class="col-lg-6">
+</div>
+<div class="col-lg-3">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>My reservation</h3>
+        </div>
+        <div class="panel-body">
+            <form name="reservation-view-form" action="/myreservation" method="post">
+                <div class="form-group">
+                    <label for="reservationReference">Reference</label>
+                    <input class="form-control" type="text" name="reservationReference" id="reservationReference" />
+                </div>
+                <button class="btn btn-primary">Retrieve</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" defer="defer">
+        $(document).ready(function () {
+            $("form[name=\"reservation-form\"]").ajaxForm({
+                success: function (results) {
+                    $.each(results, function (index, result) {
+                        $("#results").append(
+                            $("<div class=\"panel panel-default\">" +
+                                "<div class=\"panel-heading\">" + result.RoomDescription + "</div>" +
+                                "<div class=\"panel-body\">" +
+                                "<p>Rooms available: " + result.RoomsAvailable + 
+                                "<h2 class=\"text-right\">$" + result.Pricing + "&nbsp;<small>per night</small></h2></p>" +
+                                "<div class=\"text-right\">" +
+                                "<a class=\"btn btn-primary\" href=\"/reservation?CheckInDate=" + $("#checkinDate").val() +
+                                "&CheckOutDate=" + $("#checkoutDate").val() + "&roomType=" + $("#roomType").val() + "\">Book It!</a>" +
+                                "</div>" +
+                                "</div>"));
+                    });
+                }
+            });
+        });
+    </script>
+}
